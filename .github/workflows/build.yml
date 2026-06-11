@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-    workflow_dispatch:
+  workflow_dispatch:
     
 # 设置必要的写入权限
 permissions:
