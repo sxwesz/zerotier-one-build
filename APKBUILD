@@ -8,7 +8,7 @@ arch="all"
 license="GPL-3.0-or-later"
 depends=""
 makedepends="git g++ make linux-headers openssl-dev"
-source="https://github.com/zerotier/ZeroTierOne/archive/refs/tags/$pkgver.tar.gz"
+source="zerotier-one-$pkgver.tar.gz::https://github.com/zerotier/ZeroTierOne/archive/refs/tags/$pkgver.tar.gz"
 
 # 核心构建函数
 build() {
