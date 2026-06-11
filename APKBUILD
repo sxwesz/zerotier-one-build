@@ -7,7 +7,7 @@ url="https://www.zerotier.com"
 arch="all"
 license="GPL-3.0-or-later"
 depends=""
-makedepends="git g++ make linux-headers openssl-dev"
+makedepends="git g++ make linux-headers openssl-dev rust"
 source="zerotier-one-$pkgver.tar.gz::https://github.com/zerotier/ZeroTierOne/archive/refs/tags/$pkgver.tar.gz"
 
 # 核心构建函数
