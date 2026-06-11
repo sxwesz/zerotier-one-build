@@ -1,0 +1,35 @@
+name: Release Alpine Packages
+
+# 触发条件：当推送到 main 分支时运行
+on:
+  push:
+    branches:
+      - main
+    workflow_dispatch:
+    
+# 设置必要的写入权限
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 检出代码，获取 APKBUILD 文件
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 调用打包 Action
+      - name: Build and Release Alpine Packages
+        uses: ivanvc/abuild-releaser-action@v1.1.0
+        with:
+          # 必须：作者信息
+          author: "sxwesz<3771818810@qq.com>"
+          # 必须：从 Secrets 中读取的签名密钥
+          rsa_public_key: ${{ secrets.RSA_PUBLIC_KEY }}
+          rsa_private_key: ${{ secrets.RSA_PRIVATE_KEY }}
+          
+          # 可选：指定 APKBUILD 文件所在的子目录（如果仓库里有多个）
+          # packages_dir: "path/to/your/apkbuild_dir"
+          # 可选：指定要构建的 Alpine 发行版分支，默认为 'edge'
+          # alpine_branch: "v3.19"
